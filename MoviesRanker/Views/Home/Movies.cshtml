@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MoviesRanker.ViewModels.MovieVM>
+
+@{
+    ViewBag.Title = "Movies";
+}
+
+<style>
+    
+</style>
+
+<div class="row">
+
+    @{
+        foreach (var item in Model)
+        {
+            <div class="col xl2 l2 m6 s12">
+                <div class="card sticky-action">
+                    <div class="card-image waves-effect waves-block waves-light">
+
+                        <div class="snake">
+                            <div class="overlay">
+                                <span class="title">@item.Title</span>
+                                <p><i class="material-icons">perm_contact_calendar</i> (@item.ReleaseYear)</p>
+                                <span class="description"><i class="material-icons">whatshot</i> Action / War</span>
+                                <p><i class="material-icons">stars</i> @item.Rating</p>
+
+                                <a class="btn waves-effect waves-light teal darken-4" name="action">
+                                    Watch
+                                    <i class="material-icons right">send</i>
+                                </a>
+                            </div>
+                            <img class="activator" src="~/Images/Thumbnails/@(item.ID).jpg">
+                        </div>
+                    </div>
+                    @*<span class="new badge teal darken-4">@item.Title</span>*@
+
+                </div>
+
+            </div>
+        }
+    }
+</div>
+
+
+@section scripts{
+
+    <script src="~/Scripts/snake.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".snake").snakeify({
+                speed: 200
+            });
+        });
+    </script>
+}

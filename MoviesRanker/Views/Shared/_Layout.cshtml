@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Foo Movies</title>
+
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+
+    @* Google Font *@
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--Materialize CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    @* Google Fonts *@
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,700" rel="stylesheet">
+
+    @* Custom CSS *@
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>*@
+
+    @* Side Nav *@
+    <ul id="slide-out" class="side-nav">
+        <li>
+            <div class="user-view">
+                <div class="background">
+                    <img src="~/Images/Web/4.png" class="width-100">
+                </div>
+                <a href="#!user"><img class="circle" src="~/Images/Web/logo2.png"></a>
+                <a href="#!name"><span class="white-text name">John Doe</span></a>
+                <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+            </div>
+        </li>
+        <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+        <li><a href="#!">Second Link</a></li>
+        <li><div class="divider"></div></li>
+        <li><a class="subheader">Subheader</a></li>
+        <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse sidenav-btn"><i class="material-icons">menu</i></a>
+
+    @* /.Side Nav *@
+
+    @* Top Navbar *@
+    <div class="">
+        <nav class="teal darken-4">
+            <div class="container nav-wrapper">
+                <a href="/" class="brand-logo">Foo Movies</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li><a href="@Url.Action("Index","Browse")">Browse</a></li>
+                    @*<li><a href="@Url.Action("Top","Home")">Top 100</a></li>*@
+                </ul>
+            </div>
+        </nav>
+    </div>
+    @* /.Top Navbar *@
+
+    @* Body *@
+    <div class="container body-content">
+        @RenderBody()
+
+        <div class="divider"></div>
+
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Foo Movies</p>
+        </footer>
+    </div>
+
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    @RenderSection("scripts", required: false)
+
+    <script>
+        $(document).ready(function () {
+            $('.button-collapse').sideNav({
+                menuWidth: 300, // Default is 300
+                edge: 'left', // Choose the horizontal origin
+                closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+                draggable: true, // Choose whether you can drag to open on touch screens,
+                onOpen: function (el) { }, // A function to be called when sideNav is opened
+                onClose: function (el) { }, // A function to be called when sideNav is closed
+            }
+            );
+        });
+    </script>
+</body>
+</html>
